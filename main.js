@@ -1,7 +1,7 @@
 var canvas = new fabric.Canvas('myCanvas');
 
-ball_y=0;
-ball_x=0;
+var ball_y=200;
+var ball_x=200;
 hole_y=0;
 hole_x=0;
 
@@ -9,7 +9,7 @@ block_image_width = 5;
 block_image_height = 5;
 
     function load_img(){
-	fabric.Image.fromURL("golf-h1.png", function(Img) {
+	fabric.Image.fromURL("golf-h.png", function(Img) {
 	hole_obj = Img;
 	hole_obj.scaleToWidth(50);
 	hole_obj.scaleToHeight(50);
@@ -24,11 +24,11 @@ block_image_height = 5;
 
 function new_image()
 {
-	fabric.Image.fromURL("ball.pmg", function(Img) {
+	fabric.Image.fromURL("ball.png", function(Img) {
 		ball_obj = Img;
 		ball_obj.scaleToWidth(50);
-		hole_obj.scaleToHeight(50);
-	    hole_obj.set({
+		ball_obj.scaleToHeight(50);
+	    ball_obj.set({
 		top:ball_y,
 		left:ball_x
 		});
@@ -76,7 +76,7 @@ function my_keydown(e)
 		if(ball_y >=5)
 		 {
 			 ball_y = ball_y - block_image_height;
-			 console.log("block img height =" - block_image_height);
+			 console.log("block img height =" + block_image_height);
 			 console.log("When Up arrow is prrssed, X=" +ball_x+ ", Y ="+ball_y);
 			 canvas.remove(ball_obj);
 			 new_image();
@@ -100,8 +100,8 @@ function my_keydown(e)
 		if(ball_x >=5)
 		{
 			ball_x = ball_x - block_image_width;
-			console.log("block img width =" - block_image_width);
-			console.log("When Left arrow is prrssed, Y=" +ball_y+ ", X ="+ball_x);
+			console.log("block img width =" + block_image_width);
+			console.log("When Left arrow is pressed, X=" +ball_x + ", y ="+ball_y);
 			canvas.remove(ball_obj);
 			new_image();
 		}
@@ -109,11 +109,11 @@ function my_keydown(e)
 
 	function right()
 	{
-		if(ball_x <=1050)
+		if(ball_x <=450)
 		{
-			ball_x = ball_x - block_image_width;
-			 console.log("block img width =" - block_image_width);
-			 console.log("When Right arrow is prrssed, Y=" +ball_y+ ", X ="+ball_x);
+			ball_x = ball_x + block_image_height;
+			 console.log("block img width =" + block_image_width);
+			 console.log("When Right arrow is pressed, X=" +ball_x + ", y ="+ball_y);
 			 canvas.remove(ball_obj);
 			 new_image();
 		}
